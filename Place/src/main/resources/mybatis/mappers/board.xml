@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+      PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.board">
+<resultMap type="articleVO" id="articleResult">
+<result property="level" column="boardlevel"/>
+<result property="ORDER_SEQ_NUM" column="ORDER_SEQ_NUM"/>
+<result property="parentNO" column="parentNO" />
+<result property="GOODS_NAME" column="GOODS_NAME"/>
+<result property="GOODS_PEOPLE_NUM" column="GOODS_PEOPLE_NUM"/>
+<result property="GOODS_CONTENTS" column="GOODS_CONTENTS"/>
+<result property="GOODS_TEL" column="GOODS_TEL"/>
+<result property="GOODS_PRICE" column="GOODS_PRICE"/>
+<result property="GOODS_LOCATION" column="GOODS_LOCATION"/>
+<result property="writeDate" column="writeDate"/>
+<result property="GOODS_OPERATION_TIME" column="GOODS_OPERATION_TIME"/>
+<result property="imageFileName" column="imageFileName"/>
+<result property="goods_type_id" column="goods_type_id"/>
+<result property="goods_status" column="goods_status"/>
+</resultMap>
+
+<!-- pesudo 코드 level -->
+<select id="selectAllArticlesList"  resultMap="articleResult">
+select level, ORDER_SEQ_NUM, parentNO, GOODS_NAME,
+         GOODS_CONTENTS, writeDate, imageFileName,member_id
+  from place_apply
+start with parentNO=0
+connect by prior ORDER_SEQ_NUM=parentNO
+order siblings by ORDER_SEQ_NUM 
+</select>
+
+<insert id="insertNewArticle" parameterType="java.util.Map">
+insert into place_apply(ORDER_SEQ_NUM,GOODS_NAME,GOODS_PEOPLE_NUM,GOODS_CONTENTS,GOODS_TEL,GOODS_PRICE,GOODS_LOCATION,imageFileName,member_id,
+                            GOODS_OPERATION_TIME,boardlevel,parentNO,goods_type_id,goods_status)
+                 values(#{ORDER_SEQ_NUM},#{GOODS_NAME},#{GOODS_PEOPLE_NUM},#{GOODS_CONTENTS},#{GOODS_TEL},#{GOODS_PRICE},#{GOODS_LOCATION},#{imageFileName},#{id},
+                           #{GOODS_OPERATION_TIME},#{level},#{parentNO},#{goods_type_id},'bestplace')
+</insert>
+
+<select id="selectNewArticleNO" resultType="int">
+  select nvl(max(ORDER_SEQ_NUM),0)+1 from place_apply
+</select>
+
+<select id="selectArticle" parameterType="int" resultType="articleVO">
+ 	select * from place_apply where ORDER_SEQ_NUM=#{ORDER_SEQ_NUM}
+</select>
+
+<!-- 동적 쿼리 사용 -->
+<update id="updateArticle" parameterType="java.util.Map">
+  update place_apply
+       set GOODS_NAME=#{GOODS_NAME},
+            GOODS_CONTENTS=#{GOODS_CONTENTS},
+             GOODS_PEOPLE_NUM=#{GOODS_PEOPLE_NUM},
+             GOODS_TEL=#{GOODS_TEL},
+             GOODS_PRICE=#{GOODS_PRICE},
+             GOODS_LOCATION=#{GOODS_LOCATION},
+             GOODS_OPERATION_TIME=#{GOODS_OPERATION_TIME}
+        <if test="imageFileName!='' and imageFileName!=null">
+               ,imageFileName=#{imageFileName}
+        </if>
+          where ORDER_SEQ_NUM=#{ORDER_SEQ_NUM}          
+</update>
+
+<!-- 글번호에 해당하는 게시글 삭제 -->
+<delete id="deleteArticle" parameterType="int">
+   delete from place_apply where ORDER_SEQ_NUM=#{ORDER_SEQ_NUM}
+</delete>
+
+<!--  답변글 -->
+<insert id="insertReply" parameterType="java.util.Map">
+ insert into place_apply(ORDER_SEQ_NUM,GOODS_NAME,GOODS_CONTENTS,imageFileName,member_id,
+                            boardlevel,parentNO)
+                 values(#{ORDER_SEQ_NUM},#{goods_name},#{goods_contents},#{imageFileName},#{id},
+                           #{level},#{parentNO})
+</insert>
+</mapper>

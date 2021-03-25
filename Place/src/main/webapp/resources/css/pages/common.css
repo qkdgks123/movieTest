@@ -1,0 +1,536 @@
+/* components */
+/* variables */
+/* mixin */
+.content {
+  min-width: 320px;
+}
+.content input,
+.content textarea {
+  font-family: "NanumBarunGothic", "dotum", sans-serif;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+  -webkit-opacity: 1;
+}
+.content input[type="checkbox"] {
+  -webkit-appearance: checkbox;
+}
+.content input[type="radio"] {
+  -webkit-appearance: radio;
+}
+
+input[type="checkbox"].checkStyle {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  padding: 0;
+  border: 1px solid #d8d8d8;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  background: #ffffff;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  box-sizing: border-box;
+  overflow: visible;
+  outline: none;
+  cursor: pointer;
+}
+
+input[type="checkbox"].checkStyle:before {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #ffffff;
+  content: "";
+}
+
+input[type="checkbox"].checkStyle:after {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: "";
+}
+
+input[type="checkbox"].checkStyle:checked {
+  border: 0;
+}
+
+input[type="checkbox"].checkStyle:checked:after,
+input[type="checkbox"][checked="checked"].checkStyle:after {
+  background: url(/images/global/icon_checkbox.svg) center center no-repeat;
+}
+
+input[type="radio"].radioStyle {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  padding: 0;
+  border: 1px solid #d8d8d8;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  background: #ffffff;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  box-sizing: border-box;
+  overflow: visible;
+  outline: none;
+  cursor: pointer;
+}
+
+input[type="radio"].radioStyle:before {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 50%;
+  background-color: #ffffff;
+  content: "";
+}
+
+input[type="radio"].radioStyle:after {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 50%;
+  content: "";
+}
+
+input[type="radio"].radioStyle:checked:after,
+input[type="radio"][checked="checked"].radioStyle:after {
+  width: 12px;
+  height: 12px;
+  top: 3px;
+  left: 3px;
+  background: #333333;
+}
+
+.commonForm .ui-selectmenu-button {
+  display: block;
+  padding: 0;
+  text-align: center;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  outline: none;
+  border: 1px solid #d8d8d8;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  background: #ffffff;
+  padding-left: 10px;
+  text-align: left;
+  font-size: 14px;
+  font-weight: normal;
+  color: #333333;
+  cursor: pointer;
+}
+.commonForm .ui-selectmenu-icon {
+  float: right;
+  width: 18px;
+  height: 10px;
+  margin: 17px 12px 0 0;
+  background: url(/images/global/selectArrow2.svg) no-repeat center center;
+}
+
+@media (min-width: 1280px) {
+  .centerBox {
+    width: 1280px;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+}
+.subList {
+  box-sizing: border-box !important;
+  overflow: hidden;
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .subList {
+    padding: 15px 0 15px 15px;
+    border: 1px solid #d8d8d8;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+  }
+}
+@media (min-width: 1280px) {
+  .subList {
+    padding: 20px 0 20px 20px;
+    border: 1px solid #d8d8d8;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+  }
+}
+.subList li {
+  float: left;
+}
+.subList li a {
+  text-decoration: none;
+}
+.subList .imgArea {
+  overflow: hidden;
+}
+@media (max-width: 767px) {
+  .subList .imgArea {
+    display: block;
+    width: 130px;
+    height: 70px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .subList .imgArea {
+    float: left;
+    width: 130px;
+    height: 70px;
+  }
+}
+@media (min-width: 1280px) {
+  .subList .imgArea {
+    float: left;
+    width: 140px;
+    height: 80px;
+  }
+}
+@media (max-width: 767px) {
+  .subList .imgArea img {
+    width: 130px;
+    min-height: 70px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .subList .imgArea img {
+    width: 130px;
+    min-height: 70px;
+  }
+}
+@media (min-width: 1280px) {
+  .subList .imgArea img {
+    width: 140px;
+    min-height: 80px;
+  }
+}
+@media (max-width: 767px) {
+  .subList .infoArea {
+    margin-top: 9px;
+    overflow: hidden;
+  }
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .subList .infoArea {
+    margin-top: 18px;
+    padding-left: 140px;
+  }
+}
+@media (min-width: 1280px) {
+  .subList .infoArea {
+    float: left;
+    margin-top: 23px;
+    padding-left: 24px;
+    overflow: hidden;
+  }
+}
+.subList .infoArea .title {
+  line-height: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+@media (max-width: 767px) {
+  .subList .infoArea .title {
+    font-size: 14px;
+    font-weight: normal;
+    color: #333333;
+  }
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .subList .infoArea .title {
+    font-size: 15px;
+    font-weight: normal;
+    color: #333333;
+  }
+}
+@media (min-width: 1280px) {
+  .subList .infoArea .title {
+    font-size: 18px;
+    font-weight: normal;
+    color: #333333;
+  }
+}
+.subList .infoArea .priceAndTime {
+  line-height: normal;
+  overflow: hidden;
+}
+@media (max-width: 767px) {
+  .subList .infoArea .priceAndTime {
+    margin-top: 3px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .subList .infoArea .priceAndTime {
+    margin-top: 6px;
+  }
+}
+@media (min-width: 1280px) {
+  .subList .infoArea .priceAndTime {
+    margin-top: 8px;
+  }
+}
+.subList .infoArea .price {
+  float: left;
+}
+@media (max-width: 767px) {
+  .subList .infoArea .price {
+    font-size: 12px;
+    font-weight: bold;
+    color: #ff4081;
+  }
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .subList .infoArea .price {
+    font-size: 13px;
+    font-weight: bold;
+    color: #ff4081;
+  }
+}
+@media (min-width: 1280px) {
+  .subList .infoArea .price {
+    font-size: 14px;
+    font-weight: bold;
+    color: #ff4081;
+  }
+}
+.subList .infoArea .time {
+  float: left;
+}
+@media (max-width: 767px) {
+  .subList .infoArea .time {
+    font-size: 12px;
+    font-weight: normal;
+    color: #333333;
+  }
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .subList .infoArea .time {
+    font-size: 13px;
+    font-weight: normal;
+    color: #333333;
+  }
+}
+@media (min-width: 1280px) {
+  .subList .infoArea .time {
+    font-size: 14px;
+    font-weight: normal;
+    color: #333333;
+  }
+}
+
+.topSkin {
+  display: block;
+  position: relative;
+  width: 100%;
+  border-radius: 3px;
+  background-color: #000000;
+  overflow: hidden;
+}
+@media (max-width: 767px) {
+  .topSkin.responsible {
+    height: 120px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .topSkin.responsible {
+    height: 210px;
+  }
+}
+@media (min-width: 1280px) {
+  .topSkin.responsible {
+    height: 300px;
+    min-width: 1280px;
+  }
+}
+.topSkin.web {
+  height: 300px;
+  min-width: 1280px;
+}
+.topSkin .skin {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.6;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+@media (max-width: 767px) {
+  .topSkin.responsible .skin {
+    width: 100%;
+    height: 120px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .topSkin.responsible .skin {
+    width: 100%;
+    height: 210px;
+  }
+}
+@media (min-width: 1280px) {
+  .topSkin.responsible .skin {
+    width: 100%;
+    height: 300px;
+  }
+}
+.topSkin.web .skin {
+  width: 100%;
+  height: 300px;
+}
+.topSkin .skinTitle {
+  position: relative;
+  line-height: normal;
+  text-align: center;
+  font-weight: bold;
+}
+@media (max-width: 767px) {
+  .topSkin.responsible .skinTitle {
+    margin-top: 48px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffffff;
+  }
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .topSkin.responsible .skinTitle {
+    margin-top: 88px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #ffffff;
+  }
+}
+@media (min-width: 1280px) {
+  .topSkin.responsible .skinTitle {
+    margin-top: 126px;
+    font-size: 36px;
+    font-weight: bold;
+    color: #ffffff;
+  }
+}
+.topSkin.web .skinTitle {
+  margin-top: 126px;
+  font-size: 36px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.formList {
+  overflow: hidden;
+}
+.formList li {
+  line-height: normal;
+  overflow: hidden;
+}
+@media (max-width: 767px) {
+  .formList li {
+    font-size: 12px;
+    font-weight: normal;
+    color: #333333;
+  }
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .formList li {
+    font-size: 14px;
+    font-weight: normal;
+    color: #333333;
+  }
+}
+@media (min-width: 1280px) {
+  .formList li {
+    font-size: 14px;
+    font-weight: normal;
+    color: #333333;
+  }
+}
+.formList li .formTitle {
+  float: left;
+  color: #666666;
+}
+@media (max-width: 767px) {
+  .formList li .formTitle {
+    line-height: 14px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .formList li .formTitle {
+    line-height: 20px;
+  }
+}
+@media (min-width: 1280px) {
+  .formList li .formTitle {
+    line-height: 26px;
+  }
+}
+.formList li .rightArea {
+  float: left;
+}
+@media (max-width: 767px) {
+  .formList li p {
+    line-height: 16px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .formList li p {
+    line-height: 21px;
+  }
+}
+@media (min-width: 1280px) {
+  .formList li p {
+    line-height: 26px;
+  }
+}
+.formList li .pinkFont {
+  float: left;
+  margin-right: 10px;
+}
+
+.ui-selectmenu-menu {
+  background: #ffffff;
+}
+.ui-selectmenu-menu .ui-menu {
+  max-height: 300px;
+  border: 1px solid #d8d8d8;
+  overflow-y: scroll;
+}
+.ui-selectmenu-menu .ui-menu-item {
+  padding: 8px 0 8px 10px;
+  border-bottom: 1px solid #d8d8d8;
+  font-size: 14px;
+  font-weight: normal;
+  color: #333333;
+  cursor: pointer;
+}
+
+input.parsley-error,
+textarea.parsley-error {
+  border-color: #ff4081 !important;
+}
+
+.parsley-errors-list {
+  clear: both;
+}
+.parsley-errors-list li {
+  line-height: normal;
+  padding-top: 9px;
+  font-size: 14px;
+  font-weight: normal;
+  color: #ff4081;
+}
+
+/*# sourceMappingURL=common.css.map */

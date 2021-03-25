@@ -1,0 +1,490 @@
+/* components */
+/* variables */
+/* mixin */
+
+
+.btnArea .test_1 button {
+  display: block;
+  width: 280px;
+  height: 50px;
+  line-height: 50px;
+  margin: 0 auto;
+  display: block;
+  padding: 0;
+  text-align: center;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  outline: none;
+  border: 0;
+  border-radius: 25px;
+  -webkit-border-radius: 25px;
+  background: #ff4081;
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.content {
+  width: 1280px;
+  margin: 42px auto 0;
+  padding-bottom: 100px;
+}
+.content .mainTitle {
+  line-height: normal;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #d8d8d8;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333333;
+}
+.content .titleArea .requiredIcon {
+  font-size: 14px;
+  font-weight: normal;
+  color: #ff4081;
+}
+.content .parsley-errors-list li {
+  padding-bottom: 8px;
+}
+
+.emailCheckArea .editArea.completed .modifyArea {
+  display: block !important;
+}
+.emailCheckArea .editArea.completed .checkArea {
+  display: none !important;
+}
+.emailCheckArea .editArea .modifyArea {
+  display: none;
+}
+
+.emailCheckArea .editArea .checkBtn {
+  float: left;
+  width: 40px;
+  height: 23px;
+  line-height: 23px;
+  display: block;
+  padding: 0;
+  text-align: center;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  outline: none;
+  border: 0;
+  border-radius: 11.5px;
+  -webkit-border-radius: 11.5px;
+  background: #ff4081;
+  margin: 8px 0 0 0;
+  font-size: 12px;
+  font-weight: normal;
+  color: #ffffff;
+}
+.emailCheckArea .editArea .equaltoCheck {
+  float: left;
+  line-height: 38px;
+  margin-left: 9px;
+  font-size: 14px;
+  font-weight: normal;
+  color: #333333;
+}
+.emailCheckArea .editArea .modifyBtn {
+  float: left;
+  width: 100px;
+  height: 38px;
+  line-height: 38px;
+  margin-left: 19px;
+}
+.emailCheckArea .editArea .checkArea {
+  display: block;
+}
+.emailCheckArea .editArea input[type="email"].submitInput {
+  float: left;
+  width: 250px;
+  height: 38px;
+  margin-right: 10px;
+}
+.emailCheckArea .editArea input[type="text"].checkInput {
+  float: left;
+  width: 213px;
+  height: 38px;
+  margin-right: 10px;
+}
+.emailCheckArea .editArea .emailAuth,
+.emailCheckArea .editArea .companyEmailAuth {
+  float: left;
+  width: 120px;
+  height: 38px;
+  line-height: 38px;
+  margin-right: 10px;
+}
+.emailCheckArea .editArea .emailCheckBtn,
+.emailCheckArea .editArea .companyEmailCheckBtn {
+  float: left;
+  width: 100px;
+  height: 38px;
+  line-height: 38px;
+}
+.emailCheckArea .editArea .emailErrorWrap,
+.emailCheckArea .editArea .companyEmailErrorWrap {
+  float: left;
+  width: 390px;
+  min-height: 1px;
+}
+.emailCheckArea .editArea .emailCheckErrorWrap,
+.emailCheckArea .editArea .companyEmailCheckErrorWrap {
+  float: left;
+  width: 323px;
+  min-height: 1px;
+}
+
+.phoneCheckArea .editArea.completed .modifyArea {
+  display: block !important;
+}
+.phoneCheckArea .editArea.completed .checkArea {
+  display: none !important;
+}
+.phoneCheckArea .editArea .modifyArea {
+  display: none;
+}
+.phoneCheckArea .editArea .checkBtn {
+  float: left;
+  width: 40px;
+  height: 23px;
+  line-height: 23px;
+  display: block;
+  padding: 0;
+  text-align: center;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  outline: none;
+  border: 0;
+  border-radius: 11.5px;
+  -webkit-border-radius: 11.5px;
+  background: #ff4081;
+  margin: 8px 0 0 0;
+  font-size: 12px;
+  font-weight: normal;
+  color: #ffffff;
+}
+.phoneCheckArea .editArea .equaltoCheck {
+  float: left;
+  line-height: 38px;
+  margin-left: 9px;
+  font-size: 14px;
+  font-weight: normal;
+  color: #333333;
+}
+.phoneCheckArea .editArea .modifyBtn {
+  float: left;
+  width: 100px;
+  height: 38px;
+  line-height: 38px;
+  margin-left: 19px;
+}
+.phoneCheckArea .editArea .checkArea {
+  display: block;
+}
+.phoneCheckArea .editArea input[type="text"].submitInput {
+  float: left;
+  width: 250px;
+  height: 38px;
+  margin-right: 10px;
+}
+.phoneCheckArea .editArea input[type="text"].checkInput {
+  float: left;
+  width: 213px;
+  height: 38px;
+  margin-right: 10px;
+}
+.phoneCheckArea .editArea .phoneAuth,
+.phoneCheckArea .editArea .companyPhoneAuth {
+  float: left;
+  width: 120px;
+  height: 38px;
+  line-height: 38px;
+  margin-right: 10px;
+}
+.phoneCheckArea .editArea .phoneCheckBtn,
+.phoneCheckArea .editArea .companyPhoneCheckBtn {
+  float: left;
+  width: 100px;
+  height: 38px;
+  line-height: 38px;
+}
+.phoneCheckArea .editArea .parsley-errors-list li {
+  padding-bottom: 0;
+}
+.phoneCheckArea .editArea .phoneErrorWrap,
+.phoneCheckArea .editArea .companyPhoneErrorWrap {
+  float: left;
+  width: 390px;
+  min-height: 1px;
+}
+.phoneCheckArea .editArea .phoneCheckErrorWrap,
+.phoneCheckArea .editArea .companyPhoneCheckErrorWrap {
+  float: left;
+  width: 323px;
+  min-height: 1px;
+}
+
+.placeHostName {
+  margin-top: 30px;
+}
+.placeHostName .editArea input[type="text"] {
+  float: left;
+  width: 713px;
+  height: 38px;
+}
+.placeHostName .editArea .parsley-errors-list li {
+  padding-bottom: 0;
+}
+
+.placeProfileImg {
+  margin-top: 21px;
+}
+.placeProfileImg .titleArea h4 {
+  line-height: normal;
+  margin-top: 11px;
+}
+.placeProfileImg .editArea label {
+  float: left;
+  line-height: normal;
+  width: 60px;
+  height: 60px;
+  font-size: 14px;
+  font-weight: normal;
+  color: #ffffff;
+  display: block;
+  padding: 0;
+  text-align: center;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  outline: none;
+  border: 0;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  background: #ff4081;
+  padding-top: 14px;
+  cursor: pointer;
+}
+.placeProfileImg .editArea label.uploadSuccess {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  overflow: hidden;
+}
+.placeProfileImg .editArea input[type="file"] {
+  display: none;
+}
+.placeProfileImg .editArea .tips {
+  float: left;
+  line-height: 60px;
+  margin-left: 18px;
+  font-size: 14px;
+  font-weight: normal;
+  color: #333333;
+}
+.placeProfileImg .editArea .parsley-errors-list li {
+  padding-bottom: 0;
+}
+
+.placeEmail {
+  margin-top: 20px;
+}
+
+.placePhoneNumber {
+  margin-top: 10px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #d8d8d8;
+}
+
+.companyName {
+  margin-top: 20px;
+}
+.companyName .editArea input[type="text"] {
+  float: left;
+  width: 713px;
+  height: 38px;
+}
+
+.companyInfo {
+  margin-top: 10px;
+}
+.companyInfo .editArea input[type="text"],
+.companyInfo .editArea input[type="email"] {
+  float: left;
+  width: 713px;
+  height: 38px;
+}
+
+.placeSummary {
+  margin-top: 20px;
+}
+.placeSummary .editArea input[type="text"] {
+  float: left;
+  width: 713px;
+  height: 38px;
+}
+
+.placePayInfo {
+  margin-top: 10px;
+}
+.placePayInfo .editArea input[type="text"] {
+  float: left;
+  width: 603px;
+  height: 38px;
+  margin-right: 10px;
+}
+.placePayInfo .editArea input[type="file"] {
+  display: none;
+}
+.placePayInfo .editArea .hostBtn {
+  float: left;
+  width: 100px;
+  height: 38px;
+  line-height: 38px;
+}
+
+.placeBankBookInfo {
+  margin-top: 10px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #d8d8d8;
+}
+.placeBankBookInfo .editArea input[type="text"] {
+  float: left;
+  width: 603px;
+  height: 38px;
+  margin-right: 10px;
+}
+.placeBankBookInfo .editArea input[type="file"] {
+  display: none;
+}
+.placeBankBookInfo .editArea .hostBtn {
+  float: left;
+  width: 100px;
+  height: 38px;
+  line-height: 38px;
+}
+.placeBankBookInfo .editArea .parsley-errors-list li {
+  padding-bottom: 0;
+}
+
+.placeAgreement {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #d8d8d8;
+}
+.placeAgreement .editArea .agreementText {
+  float: left;
+  width: 713px;
+  height: 574px;
+  line-height: normal;
+  padding: 10px 0 20px 10px;
+  border: 1px solid #d8d8d8;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  font-size: 14px;
+  font-weight: normal;
+  color: #333333;
+  background: #ffffff;
+  box-sizing: border-box;
+  overflow-y: scroll;
+}
+.placeAgreement .editArea .agreementText .chapterTitle,
+.placeAgreement .editArea .agreementText .chapterSubTitle {
+  display: block;
+  margin-top: 12px;
+  font-weight: bold;
+}
+.placeAgreement .editArea .agreementText .chapterTitle {
+  font-size: 18px;
+}
+.placeAgreement .editArea .agreementText .chapterSubTitle {
+  margin-bottom: 6px;
+}
+.placeAgreement .editArea .agreementText p {
+  margin-top: 2px;
+  line-height: 20px;
+  margin-left: 10px;
+}
+.placeAgreement .editArea .agreementText .clause .clause {
+  margin-left: 20px;
+}
+.placeAgreement .editArea .agreementText p.legalItem {
+  padding-left: 15px;
+  text-indent: -15px;
+}
+.placeAgreement .editArea .agreementText p.wide {
+  padding-left: 20px;
+  text-indent: -20px;
+}
+.placeAgreement .editArea label {
+  float: left;
+  line-height: 20px;
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: normal;
+  color: #333333;
+}
+.placeAgreement .editArea input[type="checkbox"] {
+  float: left;
+  margin-right: 10px;
+}
+
+.copyHostInfo {
+  width: 880px;
+  margin: 20px auto 0;
+  overflow: hidden;
+}
+.copyHostInfo label {
+  float: right;
+  line-height: 20px;
+  font-size: 14px;
+  font-weight: normal;
+  color: #333333;
+}
+.copyHostInfo label input[type="checkbox"] {
+  float: left;
+  margin-right: 6px;
+}
+
+.placeAdminName {
+  margin-top: 10px;
+}
+
+.btnArea {
+  width: 1280px;
+  margin-top: 28px;
+  padding-top: 30px;
+  border-top: 1px solid #d8d8d8;
+}
+.btnArea input[type="submit"] {
+  display: block;
+  width: 280px;
+  height: 50px;
+  line-height: 50px;
+  margin: 0 auto;
+  display: block;
+  padding: 0;
+  text-align: center;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  outline: none;
+  border: 0;
+  border-radius: 25px;
+  -webkit-border-radius: 25px;
+  background: #ff4081;
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffffff;
+  cursor: pointer;
+}
+.btnArea input[type="submit"].disabled {
+  background: #999999;
+}
+
+/*# sourceMappingURL=host.css.map */

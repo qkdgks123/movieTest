@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+		
+<mapper namespace="mapper.member">
+
+	<!-- 
+		* resultmap
+		: DB 결과 data를 객체에 로드하는 방법을 정의
+		: ResultSet에서 data를 가져올 때 작성되는 JDBC코드를 줄여주는 역할
+		: id -> 결과매핑을 참조하기 위해 사용할 수 있는 값; 네임스페이스에서 유일한 식별자
+	 	: type -> 패키지를 포함한 자바 클래스명이나 타입별칭
+	 -->
+	 <!-- List<MemberVO> -->
+	<resultMap type="memberVO" id="memResult">
+		<result property="member_id" column="MEMBER_ID"/>
+		<result property="member_pw" column="MEMBER_PW"/>
+		<result property="member_name" column="MEMBER_NAME"/>
+		<result property="tel1" column="TEL1"/>
+		<result property="tel2" column="TEL2"/>
+		<result property="tel3" column="TEL3"/>	
+		<result property="email1" column="EMAIL1"/>
+		<result property="email2" column="EMAIL2"/>
+		<result property="point" column="POINT"/>	
+		<result property="joinDate" column="JOINDATE"/>	
+	</resultMap>
+	
+	<!-- 회원 목록(여러 건일 때 -> resultMap) -->
+	<select id="listAllMembers" resultMap="memResult">
+		select * from place_member order by joinDate desc
+	</select>
+	
+	<!-- 회원 등록 -->
+	<insert id="insertMember" parameterType="memberVO">
+		insert into PLACE_MEMBER(member_id, member_pw, member_name, tel1,tel2,tel3, email1,email2)
+		values(#{member_id}, #{member_pw}, #{member_name}, #{tel1}, #{tel2}, #{tel3}, #{email1}, #{email2})
+	</insert>
+	
+	<!-- 회원 수정(insert update delect는 결과과 없으므로 resultType 사용X) -->
+	<update id="updateMemberInfo" parameterType="memberVO">
+		update PLACE_MEMBER
+		set member_pw=#{member_pw}, member_name=#{member_name}, email1=#{email1},email2=#{email2},
+		tel1=#{tel1},tel2=#{tel2},tel3=#{tel3}
+		
+		
+		where member_id=#{member_id}
+	</update>
+	
+	<!-- 특정 회원(한 건일 때 -> resultType) -->
+	<select id="selectMemberInfo" parameterType="String" resultType="memberVO">
+		select * from PLACE_MEMBER where member_id=#{member_id}
+	</select>
+	
+	<!-- 비밀번호 일치 유무 -->
+	<select id="selectMemberDBPwd" parameterType="memberVO" resultType="String">
+   		select member_pw from PLACE_MEMBER where member_id=#{member_id} and member_pw=#{member_pw}
+ 	</select>
+ 	
+ 	<!-- 회원 삭제 -->
+ 	<delete id="deleteMember" parameterType="String">
+ 		delete PLACE_MEMBER where member_id=#{member_id}
+ 	</delete>
+ 	
+ 	<!-- 로그인(입력한 ID와 비밀번호로 회원 정보 조회) -->
+ 	<select id="selectMemberInfoBymemberVO" parameterType="memberVO" resultType="memberVO">
+ 		select * from PLACE_MEMBER where member_id=#{member_id} and member_pw=#{member_pw}
+ 	</select>
+	
+</mapper>

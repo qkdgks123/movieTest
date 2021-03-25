@@ -1,0 +1,97 @@
+/* components */
+/* variables */
+/* mixin */
+.mainTitle {
+  line-height: normal;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #d8d8d8;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333333;
+}
+
+.formBox article {
+  width: 880px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+}
+
+.titleArea {
+  float: left;
+  width: 166px;
+}
+.titleArea h4 {
+  line-height: 38px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333333;
+}
+
+.editArea {
+  float: left;
+  width: 713px;
+  overflow: hidden;
+}
+.editArea input[type="text"],
+.editArea input[type="email"],
+.editArea input[type="number"] {
+  padding-left: 10px;
+  border: 1px solid #d8d8d8;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  font-size: 14px;
+  font-weight: normal;
+  color: #333333;
+  box-sizing: border-box;
+  outline: none;
+}
+.editArea input[type="text"]::placeholder,
+.editArea input[type="email"]::placeholder,
+.editArea input[type="number"]::placeholder {
+  color: #999999;
+}
+.editArea textarea {
+  line-height: normal;
+  padding-left: 10px;
+  border: 1px solid #d8d8d8;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  font-size: 14px;
+  font-weight: normal;
+  color: #333333;
+  background: #ffffff;
+  box-sizing: border-box;
+  resize: none;
+  outline: none;
+}
+.editArea textarea::placeholder {
+  color: #999999;
+}
+.editArea .hostBtn {
+  display: block;
+  padding: 0;
+  text-align: center;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  outline: none;
+  border: 1px solid #d8d8d8;
+  border-radius: 19px;
+  -webkit-border-radius: 19px;
+  background: #ffffff;
+  font-size: 14px;
+  font-weight: normal;
+  color: #333333;
+  text-decoration: none;
+  cursor: pointer;
+}
+.editArea .hostBtn i {
+  float: right;
+  width: 18px;
+  height: 10px;
+  margin: 13px 21px 0 -14px;
+  background: url(/images/global/selectArrow2.svg) no-repeat center center;
+}
+
+/*# sourceMappingURL=formCommon.css.map */

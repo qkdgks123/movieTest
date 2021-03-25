@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration 	PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<typeAliases>
+		<typeAlias type="com.spring.place.member.vo.MemberVO"  alias="memberVO" />
+		<typeAlias type="com.spring.place.board.vo.ArticleVO"  alias="articleVO" />
+		<typeAlias type="com.spring.place.order.vo.OrderVO"  alias="orderVO" />
+		<typeAlias type="com.spring.place.goods.vo.GoodsVO"  alias="goodsVO" />
+		<typeAlias type="com.spring.place.goods.vo.ImageFileVO" alias="imageFileVO" />
+		<typeAlias type="com.spring.place.mypage.vo.MyPageVO" alias="mypageVO" />	
+	</typeAliases>
+</configuration>

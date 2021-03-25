@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+      PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.admin.goods">
+<resultMap type="articleVO" id="articleResult">
+<result property="level" column="boardlevel"/>
+<result property="ORDER_SEQ_NUM" column="ORDER_SEQ_NUM"/>
+<result property="parentNO" column="parentNO" />
+<result property="GOODS_NAME" column="GOODS_NAME"/>
+<result property="GOODS_PEOPLE_NUM" column="GOODS_PEOPLE_NUM"/>
+<result property="GOODS_CONTENTS" column="GOODS_CONTENTS"/>
+<result property="GOODS_TEL" column="GOODS_TEL"/>
+<result property="GOODS_PRICE" column="GOODS_PRICE"/>
+<result property="GOODS_LOCATION" column="GOODS_LOCATION"/>
+<result property="writeDate" column="writeDate"/>
+<result property="GOODS_OPERATION_TIME" column="GOODS_OPERATION_TIME"/>
+<result property="imageFileName" column="imageFileName"/>
+<result property="goods_type_id" column="goods_type_id"/>
+<result property="goods_status" column="goods_status"/>
+<result property="id" column="goods_id"/>
+
+	</resultMap>
+		
+		<resultMap id="imageResult" type="ImageFileVO">
+		<result property="goods_id" column="goods_id" />
+		<result property="image_id" column="image_id" />
+		<result property="fileName" column="fileName" />
+		<result property="fileType" column="fileType" />
+		<result property="reg_id" column="reg_id" />
+		<result property="credate" column="credate" />
+	</resultMap>
+		
+	
+		<insert id="insertNewGoods" parameterType="articleVO">
+			insert into
+			place_goods(GOODS_ID,GOODS_NAME,GOODS_PEOPLE_NUM,GOODS_CONTENTS,GOODS_TEL,GOODS_PRICE,GOODS_LOCATION,GOODS_OPERATION_TIME,GOODS_TYPE_ID,GOODS_STATUS,GOODS_FILENAME)
+			values((select max(GOODS_ID)+1 from place_goods),#{GOODS_NAME},#{GOODS_PEOPLE_NUM},#{GOODS_CONTENTS},#{GOODS_TEL},#{GOODS_PRICE},#{GOODS_LOCATION},#{GOODS_OPERATION_TIME},#{GOODS_TYPE_ID},'bestplace',#{imageFileName})
+		</insert>
+		
+		<insert id="insertNewImage" parameterType="articleVO">
+		
+		 	insert into
+		 	place_goods_detail_image values((select max(GOODS_ID)+1 from place_goods_detail_image),(select max(GOODS_ID)+1 from place_goods_detail_image),#{imageFileName},'admin','main_image',sysdate)
+		</insert>
+		
+		
+		<select id="selectArticle" parameterType="int" resultType="articleVO">
+			select ORDER_SEQ_NUM,GOODS_NAME,GOODS_PEOPLE_NUM,GOODS_CONTENTS,GOODS_TEL,GOODS_PRICE,GOODS_LOCATION,GOODS_OPERATION_TIME,GOODS_TYPE_ID,GOODS_STATUS,IMAGEFILENAME from place_apply where order_seq_num=#{order_seq_num}
+		</select>
+		
+		
+</mapper>

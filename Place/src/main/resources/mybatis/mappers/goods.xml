@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.goods">
+<!-- 리절트 맵 정의 -->	
+	<resultMap id="goodsResult" type="goodsVO">
+		<result property="goods_id" column="goods_id" />
+		<result property="goods_name" column="goods_name" />
+		<result property="goods_people_num" column="goods_people_num" />
+		<result property="goods_contents" column="goods_contents" />
+		<result property=" goods_tel" column=" goods_tel" />
+		<result property="goods_price" column="goods_price" />
+		<result property="goods_location" column="goods_location" />
+		<result property="goods_operation_time" column="goods_operation_time" />
+		<result property="goods_type_id" column="goods_type_id" />
+		<result property="goods_fileName" column="fileName" />
+		<result property="goods_credate" column="goods_credate" />
+		<result property="goods_type_name" column="goods_type_name" />
+		
+	
+	</resultMap>	
+
+
+	<resultMap id="imageResult" type="ImageFileVO">
+		<result property="goods_id" column="goods_id" />
+		<result property="image_id" column="image_id" />
+		<result property="fileName" column="fileName" />
+		<result property="fileType" column="fileType" />
+		<result property="reg_id" column="reg_id" />
+		<result property="credate" column="credate" />
+	</resultMap>
+	
+
+	
+   
+      <select id="selectGoodsList" parameterType="String" resultMap="goodsResult"   >
+        <![CDATA[
+         select t.*
+          from(
+			select g.*,d.fileName
+			from place_goods g, place_goods_detail_image d
+        	where g.goods_id=d.goods_id 
+        	and d.filetype='main_image'
+        	and goods_status=#{goodsStatus})  t
+	          
+	    ]]>
+	</select>
+	
+	<select id="selectGoodsDetail" resultMap="goodsResult"   parameterType="String"  >
+	    <![CDATA[
+		     select g.*,d.fileName, t.goods_type_name goods_type_name 
+		       from PLACE_goods g, 
+		            PLACE_goods_detail_image d,
+		            PLACE_GOODS_TYPE t
+	          where g.goods_id=d.goods_id
+	            and d.filetype='main_image'
+	            and g.goods_id=#{goods_id}
+	            and g.goods_type_id = t.goods_type_id
+	          order by g.goods_id
+    	]]>
+	</select>
+	
+	<select id="selectGoodsDetailImage" resultMap="imageResult"   parameterType="String"  >
+	    <![CDATA[
+		    	select * from PLACE_goods_detail_image 
+		    	where  fileType!='main_image'
+				and goods_id=#{goods_id}
+    	]]>
+	</select>
+	
+   <!-- * 검색하기 -->
+	<select id="selectGoodsBySearchWord" resultMap="goodsResult" parameterType="String">
+     <![CDATA[
+	     select g.*, d.fileName
+			from place_goods g,place_goods_detail_image d
+			where g.goods_id=d.goods_id 
+			and d.filetype='main_image'
+			and (g.goods_name like '%' || #{searchWord} || '%' or g.goods_location like '%' || #{searchWord} || '%')
+		]]>
+	</select>
+				<!--
+				 select g.*
+			from place_goods g
+			where goods_name like '%' || #{searchWord} || '%'
+			or goods_location like '%' || #{searchWord} || '%'
+			order by goods_id -->
+	
+	<select id="selectKeywordSearch" resultType="String"   parameterType="String"  >
+	    <![CDATA[
+        select goods_NAME from PLACE_goods 
+        where         
+        goods_NAME like '%'|| #{keyword} || '%'
+     
+		]]>
+	</select>
+	
+
+</mapper>

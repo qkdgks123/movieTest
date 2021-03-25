@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.order">
+
+	<!-- 리절트 맵 정의 -->	
+	<resultMap id="orderGoodsResult" type="OrderVO">
+	    <result property="order_seq_num" column="order_seq_num" />
+		<result property="member_id" column="member_id" />
+		<result property="goods_id" column="goods_id" />
+		<result property="goods_name" column="goods_name" />
+		<result property="register_date" column="register_date" />
+		<result property="reservation_date" column="reservation_date" />
+		<result property="goods_type_id" column="goods_type_id" />
+		<result property="tel1" column="tel1" />
+		<result property="tel2" column="tel2" />
+		<result property="tel3" column="tel3" />
+		<result property="goods_fileName" column="goods_fileName" />
+		<result property="goods_operation_time" column="goods_operation_time" />
+		<result property="goods_people_num" column="goods_people_num" />
+		<result property="goods_location" column="goods_location" />
+		<result property="goods_price" column="goods_price" />
+		<result property="goods_type_name" column="goods_type_name" />
+		<result property="goods_tel" column="goods_tel" />
+		<result property="RESERVATION_FROM_TIME" column="RESERVATION_FROM_TIME" />
+		<result property="RESERVATION_TO_TIME" column="RESERVATION_TO_TIME" />
+	</resultMap>
+	
+	<!-- * 예약한 상품 목록 -->
+	<select id="selectMyOrderList" resultMap="orderGoodsResult" parameterType="orderVO">
+		<![CDATA[
+			select *
+			from place_reservation
+			where to_char(register_date,'yyyy/mm/dd') = to_char(sysdate,'yyyy/mm/dd')
+        	and member_id=#{member_id}
+        	order by register_date desc
+		]]>
+	</select>
+	
+	<!-- * 새로운 주문(insert) -->
+	<insert id="insertNewOrder" parameterType="java.util.Map">
+	    
+	    <![CDATA[
+			insert into place_reservation(
+						order_seq_num,
+                        member_id,
+						goods_id,
+					    goods_name,
+					    reservation_date,
+					    tel1,
+					    tel2,
+					    tel3,
+					   	goods_type_id,
+					   	order_people_num,
+					   	reservation_from_time,
+					   	reservation_to_time
+			)
+			values(
+						#{order_seq_num},
+						#{member_id},
+						#{h_goods_id},
+						#{h_goods_name},
+						#{reservation_date},
+						#{tel1},
+						#{tel2},
+						#{tel3},
+						#{goods_type_id},
+						#{order_people_num},
+						#{reservation_from_time},
+					   	#{reservation_to_time}
+			)
+    	]]>
+	</insert>
+
+	<!-- * 주문번호(orderID) 추출 -->
+   	<select id="selectOrderID" resultType="int">
+		<![CDATA[
+		    select nvl(max(order_seq_num),0)+1
+		    from place_reservation
+    	]]>
+	</select>
+	
+	<!-- * 내 예약 찾기 -->
+	<select id="selectMyOrder" resultMap="orderGoodsResult" parameterType="String">
+	    <![CDATA[
+		    select * from place_reservation
+            where to_char(register_date,'yyyy/mm/dd') = to_char(sysdate,'yyyy/mm/dd') 
+            and order_seq_num=#{order_seq_num}
+            order by register_date desc
+    	]]>
+	</select>
+	
+	<!-- * 새로운 주문(remove)_1/2 -->
+	<delete id="deleteGoodsFromCart" parameterType="orderVO">
+		  delete from t_shopping_cart
+		  where goods_id=#{goods_id}
+	</delete>
+	
+</mapper>
